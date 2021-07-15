@@ -1,5 +1,15 @@
-body {
+.background-container {
+    position: fixed;
+    top: 0;
+    right: 0;
     background-image: url('./images/background.jpeg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+    z-index: -1;
 }
 
 .center {
@@ -13,8 +23,8 @@ body {
     left: 0;
     right: 0;
     width: 100vw;
-    background-color: black;
-
+    background-color: rgba(20, 20, 20, 0.8);
+    z-index: 1;
 }
 
 .tab-style {
@@ -23,21 +33,19 @@ body {
     align-items: center;
     height: 50px;
     width: 100px;
-    background-color: rgb(0, 0, 0);
     text-align: center;
-    color: white;
-    
+    color: white;  
 }
 
 .tab-style:hover {
     cursor: pointer;
-    background-color: rgb(30, 30, 30);
+    background-color: rgba(40, 40, 40, 0.8);
+    transition-duration: 0.5s;
 }
 
 .content {
     padding-top: 50px;
 }
-
 
 header {
     padding: 20px 0px;
@@ -46,7 +54,7 @@ header {
     font-size: 30px;
 }
 
-.image-style {
+.cover-img {
     width: 50%;
     height: 50%;
     border-radius: 10px;
@@ -57,4 +65,50 @@ p {
     padding-right: 20%;
     text-align: center;
     color: white;
+}
+
+/* Menu styling */
+.foodGrid { 
+    display: grid;
+    padding: 5vh 10vw 10vh 10vw;
+    height: 140vh;
+    /* possible to have it such that expand a certain vw, can display more columns? */
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 5%;
+}
+
+.item-container {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px rgba(50, 50, 50, 0.8);
+    box-shadow: 0px 4px 4px rgba(50, 50, 50, 0.6);
+    box-shadow: 0px 8px 8px rgba(50, 50, 50, 0.4);
+    
+    transform: translateY(-3%);
+    transition-duration: 1s;
+}
+
+.item-container:hover {
+    transform: translateY(3%);
+    transition-duration: 1s;
+}
+
+.food-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.foodMenu-img {
+    margin-top: 5%;
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
+}
+
+/* Contact styling */
+.contact-container {
+    height: 30vh;
+    width: 40vw;
+    border: 2px solid rgb(255, 255, 255);
 }
