@@ -4,6 +4,9 @@ import contact from './contact.js';
 
 const pageLoad = function() {
     const navBar = document.createElement("nav");
+    const backgroundContainer = document.createElement("div");
+    backgroundContainer.classList.add("background-container");
+
     const defaultTab = createTab(navBar, home);
     createTab(navBar, menu);
     createTab(navBar, contact);
@@ -12,6 +15,7 @@ const pageLoad = function() {
     navBar.classList.add("nav-style")
 
     document.body.prepend(navBar);
+    document.body.prepend(backgroundContainer);
 
     defaultTab.click();
 };
@@ -40,6 +44,8 @@ const createTab = function(navBar, fn) {
 
 export default pageLoad
 
-// lets make a sticky header; black-n-white theme homepage, with the background slight gaussian blur
+// make underline on the tabs upon hover
+// how to make food menu images all the same size and also the position of the text?
+// work on creating min-height/min-width for a more responsive design
 
-// objective: set-up the menu and contacts bare-bones
+// objective: set-up the menu 
