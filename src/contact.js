@@ -9,20 +9,39 @@ const contact = function() {
         header.textContent = "Find us";
 
         const mainContactContainer = document.createElement('div');
-        mainContactContainer.classList.add("center");
+        mainContactContainer.classList.add("center-stack");
         mainContactContainer.id = "main-contact-container";
+
+        const locationContainer = document.createElement('div');
+        locationContainer.classList.add("map");
+        locationContainer.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d426.96647945566843!2d103.85971742878698!3d1.3036199467519005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19b6d09a802f%3A0x80f027396fc33702!2s779%20North%20Bridge%20Rd%2C%20Singapore%20198747!5e0!3m2!1sen!2ssg!4v1626421607226!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`;
 
         const contactContainer = document.createElement('div');
         contactContainer.classList.add("contact-container");
-        
+
+        const contactDetailsContainer = document.createElement('div');
+        contactDetailsContainer.classList.add("contact-details-container");
+        createTextBox(contactDetailsContainer, "Phone: +52 6923 1239");
+        createTextBox(contactDetailsContainer, "Everyday 10am-10pm");
+        createTextBox(contactDetailsContainer, `Email: services@wingtaihung.com`);
+
         const self = document.createElement("form");
         createForm(self, contactContainer);
 
+        mainContactContainer.append(locationContainer);
+        mainContactContainer.append(contactDetailsContainer);
         mainContactContainer.appendChild(contactContainer);
         content.appendChild(header);
         content.appendChild(mainContactContainer);
     }
 };
+
+const createTextBox = function(container, message) {
+    const text = document.createElement("p");
+    text.textContent = message;
+    text.classList.add("contact-details-text");
+    container.appendChild(text);
+}
 
 const createForm = function(self, container) {
     createFormLabel(self, "name", "Name:");

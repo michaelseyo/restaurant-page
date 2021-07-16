@@ -22,7 +22,6 @@ const pageLoad = function() {
 
 const createTab = function(navBar, fn) {
     const tab = document.createElement("div");
-    // loads up the tab content
     tab.addEventListener("click", fn); 
     const text = document.createElement("span");
     switch (fn) {
@@ -47,5 +46,3 @@ export default pageLoad
 // make underline on the tabs upon hover
 // how to make food menu images all the same size and also the position of the text?
 // work on creating min-height/min-width for a more responsive design
-
-// objective: put the google maps location on the contact tab; need the api?
