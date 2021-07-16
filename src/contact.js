@@ -15,7 +15,8 @@ const contact = function() {
         const contactContainer = document.createElement('div');
         contactContainer.classList.add("contact-container");
         
-        form.createForm(contactContainer);
+        const self = document.createElement("form");
+        createForm(self, contactContainer);
 
         mainContactContainer.appendChild(contactContainer);
         content.appendChild(header);
@@ -23,59 +24,51 @@ const contact = function() {
     }
 };
 
-const form = (function() {
-    const self = document.createElement("form");
+const createForm = function(self, container) {
+    createFormLabel(self, "name", "Name:");
+    createFormLabel(self, "contactNumber", "Contact number:");
+    createFormLabel(self, "email", "Email:");
+    createTextArea(self);
+    createSubmitBtn(self);
+    container.appendChild(self);
+};
 
-    const createForm = function(container) {
-        createFormLabel("name", "Name:");
-        createFormLabel("contactNumber", "Contact number:");
-        createFormLabel("email", "Email:");
-        createTextArea();
-        createSubmitBtn();
-        container.appendChild(self);
-    };
+const createFormLabel = function(self, id, text) {
+    const label = document.createElement("label");
+    label.for = id;
+    label.textContent = text;
     
-    const createFormLabel = function(id, text) {
-        const label = document.createElement("label");
-        label.for = id;
-        label.textContent = text;
-        
-        const input = document.createElement("input");
-        input.type = "text";
-        input.id = id;
-        input.name = id;
+    const input = document.createElement("input");
+    input.type = "text";
+    input.id = id;
+    input.name = id;
 
-        self.appendChild(label);
-        self.appendChild(input);
-    };
+    self.appendChild(label);
+    self.appendChild(input);
+};
 
-    const createTextArea = function() {
-        const label = document.createElement("label");
-        label.for = "message";
-        label.textContent = "Message:";
-        self.appendChild(label);
+const createTextArea = function(self) {
+    const label = document.createElement("label");
+    label.for = "message";
+    label.textContent = "Message:";
+    self.appendChild(label);
 
-        const msg = document.createElement("textarea");
-        msg.id = "message";
-        msg.name = "message";
-        msg.placeholder = "Write your message...";
-        self.appendChild(msg);
-    };
+    const msg = document.createElement("textarea");
+    msg.id = "message";
+    msg.name = "message";
+    msg.placeholder = "Write your message...";
+    self.appendChild(msg);
+};
 
-    const createSubmitBtn = function() {
-        const btn = document.createElement("input");
-        btn.type = "submit";
-        btn.value = "Submit";
-        // could add a 'message' once submit (but doesn't actually work)
-        btn.addEventListener("click", function(e) {
-            e.preventDefault();
-        }); 
-        self.appendChild(btn);
-    };
-
-    return {
-        createForm,
-    };
-})();
+const createSubmitBtn = function(self) {
+    const btn = document.createElement("input");
+    btn.type = "submit";
+    btn.value = "Submit";
+    // could add a 'message' once submit (but doesn't actually work)
+    btn.addEventListener("click", function(e) {
+        e.preventDefault();
+    }); 
+    self.appendChild(btn);
+};
 
 export default contact
