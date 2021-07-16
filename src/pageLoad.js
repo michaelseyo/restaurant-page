@@ -48,4 +48,4 @@ export default pageLoad
 // how to make food menu images all the same size and also the position of the text?
 // work on creating min-height/min-width for a more responsive design
 
-// objective: set-up the menu 
+// objective: put the google maps location on the contact tab; need the api?
