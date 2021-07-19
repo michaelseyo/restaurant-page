@@ -1,7 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
 .background-container {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     background-image: url('./images/background.jpeg');
     background-position: center;
     background-size: cover;
@@ -19,6 +23,7 @@
 
 .center-stack {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
 }
@@ -46,11 +51,12 @@
 .tab-style:hover {
     cursor: pointer;
     background-color: rgba(40, 40, 40, 0.8);
-    transition-duration: 0.5s;
+    border-bottom: 5px solid white;
 }
 
 .content {
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 header {
@@ -58,35 +64,46 @@ header {
     text-align: center;
     font-weight: bold;
     color: white;
-    font-size: 30px;
+    font-size: clamp(30px, 3vw, 60px);
 }
 
-.cover-img {
-    width: 50%;
-    height: 50%;
-    border-radius: 10px;
+.home-grid {
+    display: grid;
+    row-gap: 20px;
+    padding: 2%;
+}
+
+.home-img {
+    width: 100%;
+    min-width: 200px;
+    max-width: 1000px;
+    height: 100%;
+    min-height: 50px;
+    max-height: 667px;
 }
 
 p {
-    padding-left: 20%;
-    padding-right: 20%;
-    text-align: center;
+    padding-left: 10vw;
+    padding-right: 10vw;
     color: white;
+    font-size: clamp(20px, 2vw, 24px);
 }
 
 /* Menu styling */
 .food-grid { 
     display: grid;
-    padding: 5vh 10vw 10vh 10vw;
-    margin-bottom: 10vh;
-    height: 130vh;
-    /* possible to have it such that expand a certain vw, can display more columns? */
-    /* how to make gap with the bottom? */ 
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 5%;
+    padding-top: 3vh;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 100%;
+    max-width: 1200px;
+
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5%;
+    grid-row-gap: 50px;
 }
 
-.item-container {
+.item-container { 
     border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0px 2px 2px rgba(50, 50, 50, 0.8);
@@ -102,7 +119,7 @@ p {
     transition-duration: 1s;
 }
 
-.food-container {
+.food-container { 
     display: flex;
     position: relative;
     justify-content: center;
@@ -115,13 +132,20 @@ p {
     border-radius: 10px;
 }
 
+.food-menu-text {
+    text-align: center;
+    font-size: clamp(16px, 2vw, 24px);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 /* Contact styling */
 .map {
     position: relative;
     margin-bottom: 30px;
-    height: 40vh;
-    width: 50vw;
-    min-width: 700px;
+    height: 45vh;
+    width: 80vw;
+    max-width: 1200px;
 }
 
 .map iframe {
@@ -133,18 +157,19 @@ p {
 }
 
 .contact-container {
+    display: flex;
+    flex-direction: column;
     margin: 30px;
     min-height: 32vh;
-    width: 40vw;
-    min-width: 700px;
-    max-width: 60%;
+    width: 80vw;
+    max-width: 800px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
 }
 
 .contact-details-container {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     text-align: center;
     color: white;
 }
@@ -155,7 +180,6 @@ p {
 }
 
 form {
-    min-width: 200px;
     padding: 30px;
 }
 
