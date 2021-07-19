@@ -4,27 +4,31 @@ const home = function() {
     if (!isSameTab("home")) {
         clearChildNodes();
         const content = document.querySelector(".content"); 
+        content.classList.add("center-stack");
         content.id = "home";
         const header = document.createElement('header');
-        const imgContainer = document.createElement("div");
-        const img = new Image();
-        const para = document.createElement("p");
-
         header.textContent = "Wing Tai Hung";
-        para.textContent = `Here we have the nice noodle man. Very nice fried rice, nice dumpling, nice everything. 
-                            All the Chinese food in the world, most delicious buddy. Come on and give it a try, fragrant
-                            fried rice, the Yangzhou, the sweet and sour pork rib, the cereal prawn, the nice tofu :o, 
-                            the nice peking duck, if you don't try don't regret it buddy :( `;
-        img.src = "./images/cover.jpeg";
-        img.alt = "noodle chef"
 
-        img.classList.add("cover-img");
-        imgContainer.classList.add("center");
-        imgContainer.append(img);
+        const gridForImgs = document.createElement('grid');
+        gridForImgs.classList.add("home-grid");
+        createImg(gridForImgs, "./images/cover.jpeg", "noodle chef");
+        createImg(gridForImgs, "./images/cover2.jpeg", "making dumplings");
+        createImg(gridForImgs, "./images/cover3.jpeg", "dumplings");
         content.append(header);
-        content.append(imgContainer);
-        content.append(para);
+        content.append(gridForImgs);
     }
+};
+
+const createImg = function(grid, src, alt) {
+    const imgContainer = document.createElement("div");
+    imgContainer.classList.add("center-stack");
+    const img = new Image();
+    img.classList.add("home-img");
+    img.src = src;
+    img.alt = alt;
+
+    imgContainer.append(img);
+    grid.append(imgContainer);
 };
 
 export default home

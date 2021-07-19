@@ -4,6 +4,7 @@ const contact = function() {
     if (!isSameTab("contact")) {
         clearChildNodes();
         const content = document.querySelector(".content"); 
+        content.classList.add("center-stack");
         content.id = "contact";
         const header = document.createElement('header');
         header.textContent = "Find us";
@@ -22,7 +23,7 @@ const contact = function() {
         const contactDetailsContainer = document.createElement('div');
         contactDetailsContainer.classList.add("contact-details-container");
         createTextBox(contactDetailsContainer, "Phone: +52 6923 1239");
-        createTextBox(contactDetailsContainer, "Everyday 10am-10pm");
+        createTextBox(contactDetailsContainer, "Monday - Sunday: 10am-10pm");
         createTextBox(contactDetailsContainer, `Email: services@wingtaihung.com`);
 
         const self = document.createElement("form");
@@ -83,7 +84,6 @@ const createSubmitBtn = function(self) {
     const btn = document.createElement("input");
     btn.type = "submit";
     btn.value = "Submit";
-    // could add a 'message' once submit (but doesn't actually work)
     btn.addEventListener("click", function(e) {
         e.preventDefault();
     }); 

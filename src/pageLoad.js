@@ -42,7 +42,3 @@ const createTab = function(navBar, fn) {
 }
 
 export default pageLoad
-
-// make underline on the tabs upon hover
-// how to make food menu images all the same size and also the position of the text?
-// work on creating min-height/min-width for a more responsive design

@@ -4,6 +4,7 @@ const menu = function() {
     if (!isSameTab("menu")) {
         clearChildNodes();
         const content = document.querySelector(".content");
+        content.classList.add("center-stack");
         content.id = "menu";
         const header = document.createElement('header');
         header.textContent = "Our food";
@@ -14,10 +15,10 @@ const menu = function() {
         createFoodItem(foodGrid, "Fried Noodles", './images/menu/fried-noodles.jpeg');
         createFoodItem(foodGrid, "Pork Ribs", './images/menu/pork-ribs.jpeg');
         createFoodItem(foodGrid, "Fried Pork Chop", './images/menu/porkchop.jpeg');
-        createFoodItem(foodGrid, "Pork Wontons with Spicy Sauce", './images/menu/pork-wontons.jpeg');
+        createFoodItem(foodGrid, "Pork Wontons", './images/menu/pork-wontons.jpeg');
         createFoodItem(foodGrid, "Chicken Dumplings", './images/menu/chicken-dumplings.jpeg');
         createFoodItem(foodGrid, "Bok Choy", './images/menu/bokchoy.jpeg');
-        createFoodItem(foodGrid, "Stir-fry Garlic Broccoli", './images/menu/broccoli.jpeg');
+        createFoodItem(foodGrid, "Stir-fry Broccoli", './images/menu/broccoli.jpeg');
 
         content.appendChild(header);
         content.appendChild(foodGrid);
@@ -32,6 +33,7 @@ const createFoodItem = function(foodGrid, name, imgSrc) {
     
     const text = document.createElement('p');
     text.textContent = name;
+    text.classList.add("food-menu-text");
     
     const img = new Image();
     img.src = imgSrc;
